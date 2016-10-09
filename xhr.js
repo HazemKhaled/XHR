@@ -343,6 +343,11 @@ function initXHRRequest(method, url, extraParams) {
         }
         xhr.setRequestHeader('Authorization', authstr);
     }
+
+    // Add support for onsendstream
+    if (extraParams.sendstreamCallback) {
+        xhr.onsendstream = extraParams.sendstreamCallback;
+    }
     return xhr;
 }
 
